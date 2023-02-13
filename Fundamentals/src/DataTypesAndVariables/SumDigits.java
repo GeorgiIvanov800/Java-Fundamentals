@@ -21,10 +21,11 @@ public class SumDigits {
             number = number / 10; //remove the last digit
         }*/
 
-        for (int number = Integer.parseInt(scanner.nextLine()); number > 0 ; number = number / 10) {
+        for (int number = Integer.parseInt(scanner.nextLine()); number > 0; number = number / 10) {
             int lastDigit = number % 10; //last digit
             sum += lastDigit;
         }
 
         System.out.println(sum);
+    }
 }
