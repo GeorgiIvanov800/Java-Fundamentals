@@ -9,13 +9,13 @@ public class DataTypeFinder {
         //•	Integer
         //•	Floating point -> contains the symbol '.'
         //•	Characters -> length 1 and code < 48 || code > 57
-        //•	Boolean -> true или false
-        //•	Strings -> ако имаме последователност само от символи (код < 45 || код > 57)
+        //•	Boolean -> true or false
+        //•	Strings -> if we have a sequence of only characters (code < 45 || code > 57)
         String input = scanner.nextLine();
         //stop: input == "END"
         while (!input.equals("END")) {
             String type = "";
-            //проверка за типовете
+            //type checking
             //boolean
             if(input.equalsIgnoreCase("true") || input.equalsIgnoreCase("false")) {
                 type = "boolean";
@@ -23,11 +23,11 @@ public class DataTypeFinder {
             //character
             else if(input.length() == 1) {
                 char symbol = input.charAt(0);
-                //символ
+                //symbol
                 if(symbol < 47 || symbol > 58) {
                     type = "character";
                 }
-                //едноцифрено цяло число
+                //integer
                 else {
                     type = "integer";
                 }
@@ -36,7 +36,7 @@ public class DataTypeFinder {
                 boolean isFloat = false;
                 for (int i = 0; i < input.length(); i++) {
                     char currentSymbol = input.charAt(i);
-                    //проверка дали е символ
+                    //checking if it is a character
                     if(currentSymbol < 45 || currentSymbol > 57) {
                         isString = true;
                     }
@@ -48,7 +48,7 @@ public class DataTypeFinder {
                 if(isString) {
                     type = "string";
                 } else {
-                    //число
+                    //number
                     if(isFloat) {
                         type = "floating point";
                     } else {
