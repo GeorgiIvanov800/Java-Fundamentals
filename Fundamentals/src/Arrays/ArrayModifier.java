@@ -8,11 +8,11 @@ public class ArrayModifier {
         int [] numbers = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
         //repeat action -> enter commands
-        //стоп: входни данни == "end"
-        //продължаваме: входни данни != "end"
+        //stop: input data == "end"
+        // continue: input data!= "end"
         String command = scanner.nextLine();
         while (!command.equals("end")) {
-            //валидна команда за изпълнение
+            //valid command to execute
             //command = "swap 2 3"
             //command = "multiply 4 6"
             //command = "decrease"
