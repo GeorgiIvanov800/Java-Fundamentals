@@ -17,10 +17,10 @@ public class TopInteger {
                 System.out.print(currentNumber + " ");
                 break;
             }
-            //обхождам всички индекси след моя
-            //следващото число -> index + 1
+            //traversing all indexes after mine
+            //next number -> index + 1
             boolean isTop = false; //
-            for (int i = index + 1; i <= numbers.length - 1; i++) { //обходя всички числа след моето
+            for (int i = index + 1; i <= numbers.length - 1; i++) { //loop through all the numbers after mine
                 int nextNumber = numbers[i];
                 if (currentNumber > nextNumber) {
                     isTop = true;
@@ -29,7 +29,7 @@ public class TopInteger {
                     break;
                 }
             }
-            //проверка дали моето число е топ
+            //checking if my number is top
             if (isTop) {
                 System.out.print(currentNumber + " ");
             }
