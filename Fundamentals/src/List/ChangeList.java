@@ -22,18 +22,18 @@ public class ChangeList {
         //stop: command == "end"
         //continue: command != "end"
         while (!command.equals("end")) {
-            //команда
+            //command
             //1. command = "Delete 3"
             if (command.contains("Delete")) {
                 //"Delete 3".split(" ") -> ["Delete", "3"]
                 int numberForRemove = Integer.parseInt(command.split(" ")[1]);
-                //премахваме всички стойности от списъка равни на numberForRemove
+                //we remove all values from the list equal to numberForRemove
                 numbers.removeAll(Arrays.asList(numberForRemove));
             }
             //2. command = "Insert 3 1"
             else if (command.contains("Insert")) {
                 //"Insert 3 1".split(" ") -> ["Insert", "3", "1"]
-                //вмъкна element на index
+                //inserted element at index
                 int element = Integer.parseInt(command.split(" ")[1]);
                 int index = Integer.parseInt(command.split(" ")[2]);
                 numbers.add(index, element);
@@ -41,7 +41,7 @@ public class ChangeList {
             command = scanner.nextLine();
         }
 
-        //списък с числа -> {3, 4, 5, 6}
+        //list of numbers -> {3, 4, 5, 6}
         for (int number : numbers) {
             System.out.print(number + " ");
         }
