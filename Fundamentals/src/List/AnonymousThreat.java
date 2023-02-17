@@ -1,5 +1,6 @@
 package List;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -76,7 +77,7 @@ public class AnonymousThreat {
             command = scanner.nextLine();
         }
 
-        
+
         System.out.println(String.join(" ", texts));
 
        /* for (String text : texts) {
