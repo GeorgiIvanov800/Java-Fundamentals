@@ -70,31 +70,31 @@ public class ListOperation {
                 //•	"Shift right {count}" - last number becomes first 'count' times
                 //"Shift right 3".split(" ") -> ["Shift", "right", "3"]
                 int countShiftRight = Integer.parseInt(command.split("\\s+")[2]);
-                //повтаряме дейност -> countShiftRight пъти
+                //repeat -> countShiftRight
                 for (int time = 1; time <= countShiftRight; time++) {
                     //last number becomes first
                     //{3, 4, 6, 7, 1}
-                    //1. взимам последното число от списъка -> index = size - 1
+                    //1.take the last number from the list -> index = size - 1
                     int lastNumber = numbers.get(numbers.size() - 1);
-                    //2. премахвам последното число от списъка -> {3, 4, 6, 7}
+                    //2.remove the last number from the list -> {3, 4, 6, 7}
                     numbers.remove(numbers.size() - 1);
-                    //3. добавям го в началото на списъка -> {1, 3, 4, 6, 7}
+                    //3.add it to the top of the list -> {1, 3, 4, 6, 7}
                     numbers.add(0,lastNumber);
                 }
             }
             command = scanner.nextLine();
         }
 
-        //крайния списък с числа
+        //the final list of numbers
         for (int number : numbers) {
             System.out.print(number + " ");
         }
 
     }
 
-    //метод, който проверява дали даден индекс е валиден
-    //true -> валиден индекс -> [0, size - 1]
-    //false -> невалиден индекс
+    //method that checks if an index is valid
+    //true -> valid index -> [0, size - 1]
+    //false -> invalid index
     public static boolean isValidIndex (int index, List<Integer> numbers) {
         return index >= 0 && index <= numbers.size() - 1;
     }
