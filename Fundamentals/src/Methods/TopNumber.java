@@ -33,6 +33,7 @@ public class TopNumber {
         }
         //2.checksum for division by 8
         return sumDigits % 8 == 0;
+
         /*if (sumDigits % 8 == 0) {
             return true;
         } else {
