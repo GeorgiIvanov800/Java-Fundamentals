@@ -15,7 +15,7 @@ public class SmallestNumber {
 
     //method that prints the smallest of three integers
     public static void printSmallestNumber (int n1, int n2, int n3) {
-        
+
         if (n1 <= n2 && n1 <= n3) {
             System.out.println(n1);
         }
