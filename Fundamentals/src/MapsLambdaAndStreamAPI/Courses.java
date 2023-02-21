@@ -9,10 +9,10 @@ public class Courses {
         //coursename -> list of student names
         Map<String, List<String>> courses = new LinkedHashMap<>();
         while(!input.equals("end")) {
-            //"{име на курс} : {име на човек}" -> split (" : ") -> ["{courseName}", "{personName}"]
+            //"{course name} : {person name}" -> split (" : ") -> ["{courseName}", "{personName}"]
             String courseName = input.split(" : ")[0];
             String personName = input.split(" : ")[1];
-            //прверка имам ли такъв курс
+            //check for such a course
             //ако нямам такъв курс
             if(!courses.containsKey(courseName)) {
                 courses.put(courseName, new ArrayList<>());
