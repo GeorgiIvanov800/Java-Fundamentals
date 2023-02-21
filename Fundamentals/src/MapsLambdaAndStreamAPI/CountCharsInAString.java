@@ -16,7 +16,7 @@ public class CountCharsInAString {
         //TreeMap -> записите е сортират спрямо техния ключ
 
         for (char symbol : text.toCharArray()) {
-            //"Desi" -> ['D', 'e', 's', 'i']
+            //"John" -> ['J', 'o', 'h', 'n']
             /*if (symbol == ' ') {
                 continue; //пропуска всичко надолу и преминава към следващия символ
             }*/
