@@ -9,32 +9,29 @@ public class CountCharsInAString {
         Scanner scanner = new Scanner(System.in);
         String text = scanner.nextLine().replaceAll("\\s+", "");
         //"text text text".replaceAll -> "texttexttext"
-        //символ -> бр. срещанията
+        //symbol -> no. the meetings
         Map<Character, Integer> symbolsCount = new LinkedHashMap<>();
-        //HashMap -> няма значение редът на записите
-        //LinkedHashMap -> записите се подреждат спрямо реда на добавяне
-        //TreeMap -> записите е сортират спрямо техния ключ
+        //HashMap -> the order of the elements does not matter
+        //LinkedHashMap -> elements are sorted in order of addition
+        //TreeMap -> elements are sorted by their key
 
         for (char symbol : text.toCharArray()) {
             //"John" -> ['J', 'o', 'h', 'n']
             /*if (symbol == ' ') {
-                continue; //пропуска всичко надолу и преминава към следващия символ
+                continue; //skips everything down and moves on to the next symbol
             }*/
-            //1. да не съм срещала такъв символ
+            //1.have never met such a symbol
             if (!symbolsCount.containsKey(symbol)) {
                 symbolsCount.put(symbol, 1);
             }
-            //2. да съм срещала такъв символ
+            //2.met such a symbol
             else {
-                int currentCount = symbolsCount.get(symbol); //текущия бр. срещания
+                int currentCount = symbolsCount.get(symbol);
                 symbolsCount.put(symbol, currentCount + 1);
             }
         }
 
-        //отпечатваме
-        //символ -> бр. срещания
-        //entry: key (symbol) -> value (count)
-        //запис: символ бр. срещания
+        //print
         symbolsCount.entrySet().forEach(entry -> System.out.println(entry.getKey() + " -> " + entry.getValue()));
     }
 }
