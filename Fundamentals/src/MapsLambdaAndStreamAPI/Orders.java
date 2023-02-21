@@ -2,14 +2,15 @@ package MapsLambdaAndStreamAPI;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Orders {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
-        //продукт -> обща цена (бр * ед. цена)
-        Map<String, Double> productsPrice = new LinkedHashMap<>(); //продукт -> ед. цена
-        Map<String, Integer> productsQuantity = new LinkedHashMap<>(); //продукт -> брой
+        //product -> total price (pcs * unit price)
+        Map<String, Double> productsPrice = new LinkedHashMap<>(); //product -> unit price
+        Map<String, Integer> productsQuantity = new LinkedHashMap<>(); //product -> count
 
         while(!input.equals("buy")) {
             //"Beer 2.20 100" -> split(" ") -> ["Beer", "2.20", "100"]
@@ -29,8 +30,8 @@ public class Orders {
         }
 
         for (Map.Entry<String, Double> entry : productsPrice.entrySet()) {
-            //key (име на продукта) -> value (цена)
-            //цена * количеството
+            //key (product name) -> value (price)
+            //price * quantity
             String productName = entry.getKey();
             double finalSum = entry.getValue() * productsQuantity.get(productName);
             System.out.printf("%s -> %.2f%n", productName, finalSum);
