@@ -11,14 +11,14 @@ public class ForceBook {
         Map<String, List<String>> map = new LinkedHashMap<>();
 
         while (!command.equals("Lumpawaroo")) {
-            //валидна команда
+            //valid command
             if (command.contains(" | ")) {
                 //command = "{force_side} | {force_user}".split(" | ") -> ["{force_side}", "{force_user}"]
                 String group = command.split("\\s+\\|\\s+")[0];
                 String user = command.split("\\s+\\|\\s+")[1];
-                //1. дали нямаме такава група
+                //1. if group exists
                 if (!map.containsKey(group)) {
-                    //група -> празен списък
+                    //group -> empty list
                     map.put(group, new ArrayList<>());
                 }
                 //2. имаме такава група -> добавяме към групата user, ако го няма в НИКОЯ ГРУПА
