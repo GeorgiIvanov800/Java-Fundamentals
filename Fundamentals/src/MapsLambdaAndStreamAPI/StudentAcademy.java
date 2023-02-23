@@ -5,44 +5,44 @@ import java.util.*;
 public class StudentAcademy {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        //key: име на студент -> value: списък с оценките
+        //key: student name -> value: list of grades
         Map<String, List<Double>> studentsGrade = new LinkedHashMap<>();
 
         int countStudents = Integer.parseInt(scanner.nextLine());
         for (int student = 1; student <= countStudents; student++) {
-            String name = scanner.nextLine(); //име на студента
-            double grade = Double.parseDouble(scanner.nextLine()); //оценка на студента
-            //1. да не е записан
+            String name = scanner.nextLine(); //student name
+            double grade = Double.parseDouble(scanner.nextLine()); //student grade
+            //1. not in the map
             if (!studentsGrade.containsKey(name)) {
                 studentsGrade.put(name, new ArrayList<>());
             }
-            //2. да е записан
+            //2. in the map
             studentsGrade.get(name).add(grade);
         }
 
-        //записи: име на студента (key) -> ср. оценка (value)
+        //records: student name (key) -> av. value
         Map<String, Double> averageGradeStudents = new LinkedHashMap<>();
 
         for (Map.Entry<String, List<Double>> entry : studentsGrade.entrySet()) {
-            //entry: (key)име на студента -> (value)списък с оценки
-            String studentName = entry.getKey(); //име на студент
-            List<Double> listGrades = entry.getValue(); //списък с оценки за всеки студент
-            double averageGrade = getAverageGrade(listGrades); //средна оценка
-            //студент -> списък с оценките -> ср. аритметична оценка
+            //entry: (key)student name -> (value)list of grades
+            String studentName = entry.getKey(); //student name
+            List<Double> listGrades = entry.getValue(); //list of grades for each student
+            double averageGrade = getAverageGrade(listGrades); //average grade
+            //student -> grade list -> avg. arithmetic evaluation
             if (averageGrade >= 4.50) {
                 averageGradeStudents.put(studentName, averageGrade);
             }
         }
 
-        //отпечатваме: averageGradeStudents
+        //print: averageGradeStudents
         //entry: name(key) -> av.grade (value)
         averageGradeStudents.entrySet().forEach(entry -> System.out.printf("%s -> %.2f%n", entry.getKey(), entry.getValue()));
     }
 
     private static double getAverageGrade(List<Double> listGrades) {
         //{4.60, 3.50, 5.90, 4.70, 2.50}
-        //ср. аритметично = сбора от оценките / брой на оценките
-        double sumGrades = 0; //сбора от оценките
+        //wed. arithmetic = sum of marks / number of marks
+        double sumGrades = 0; //sum of grades
         for (double grade : listGrades) {
             sumGrades += grade;
         }
