@@ -40,15 +40,15 @@ public class ForceBook {
                 String user = command.split("\\s+->\\s+")[0];
                 String group = command.split("\\s+->\\s+")[1]; //group where it goes
 
-                //1. ако дадения user го има в дадена група -> премахваме го от текущата група
-                //запис: група (key) -> списък с users (value)
+                //1.if the given user is in a given group -> we remove it from the current group
+                //record: group (key) -> list of users (value)
                 map.entrySet().forEach(entry -> entry.getValue().remove(user));
 
-                //2. проверяваме дали имаме такава група, в която отива
+                //2. check  such a group  exist where it goes to
                 if (map.containsKey(group)) {
                     map.get(group).add(user);
                 } else {
-                    //нямама такава група, в която иска да отиде -> създаваме
+                    //there is no such group he wants to go to ->  create
                     map.put(group, new ArrayList<>());
                     map.get(group).add(user);
                 }
@@ -59,11 +59,11 @@ public class ForceBook {
         }
 
 
-        //запис: група -> списък с user-и
-        //1. филтрирам записите -> бр. хората > 0
-        map.entrySet()  //всички записи
-                .stream().filter(entry -> entry.getValue().size() > 0) //оставяме само записите, които отговарят на условието да имат хора в групата
-                //списък със записи, които отговарят на условието
+        //entry: group -> list of users
+        //1.filter records -> no. people > 0
+        map.entrySet()  //all records
+                .stream().filter(entry -> entry.getValue().size() > 0) //leave records that meet the condition of having people in the group
+                //a list of records that match the condition
                 .forEach(entry -> {
                             //entry: groupName(key) -> list of users (value)
                             //"Side: {forceSide}, Members: {forceUsers.Count}
