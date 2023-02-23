@@ -21,24 +21,24 @@ public class ForceBook {
                     //group -> empty list
                     map.put(group, new ArrayList<>());
                 }
-                //2. имаме такава група -> добавяме към групата user, ако го няма в НИКОЯ ГРУПА
-                boolean isExistUser = false; //user го има в даден група
+                //2.have such a group -> add to the user group if it is not in ANY GROUP
+                boolean isExistUser = false; //user is in a group
                 for (List<String> listUsers : map.values()) {
                     if (listUsers.contains(user)) {
-                        //user го има в някоя група
+                        //user is in a group
                         isExistUser = true;
                         break;
                     }
                 }
 
                 if (!isExistUser) {
-                    //user го няма в никоя група
+                    //user not in a group
                     map.get(group).add(user);
                 }
             } else if (command.contains(" -> ")) {
                 //command = "{force_user} -> {force_side}".split(" -> ") -> ["{force_user}", "{force_side}"]
                 String user = command.split("\\s+->\\s+")[0];
-                String group = command.split("\\s+->\\s+")[1]; //група, в която отива
+                String group = command.split("\\s+->\\s+")[1]; //group where it goes
 
                 //1. ако дадения user го има в дадена група -> премахваме го от текущата група
                 //запис: група (key) -> списък с users (value)
