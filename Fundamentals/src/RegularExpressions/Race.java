@@ -55,9 +55,9 @@ public class Race {
         //sort distance descending order
         //comparingByValue -> ascending order
         List<String> top3Names = racerDistances.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())) 
-                .limit(3) //оставяме само първите 3 записа
-                .map(entry -> entry.getKey()) //на всеки от трите записа взимаме ключа (име на играча)
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .limit(3) //let only the first three places
+                .map(entry -> entry.getKey())
                 .collect(Collectors.toList()); // {"George", "Peter", "Tom"}
 
         System.out.println("1st place: " + top3Names.get(0));
