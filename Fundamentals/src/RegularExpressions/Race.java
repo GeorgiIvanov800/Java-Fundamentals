@@ -12,21 +12,21 @@ public class Race {
         //масив: ["George", "Peter", "Bill", "Tom"].toList()
         //лист: {"George", "Peter", "Bill", "Tom"}
 
-        //състезател -> дистанция
+        //racer -> distance
         Map<String, Integer> racerDistances = new LinkedHashMap<>();
         names.forEach(name -> racerDistances.put(name, 0));
 
         //REGEX
         String regexLetters = "[A-Za-z]+";
-        Pattern patternLetters = Pattern.compile(regexLetters); //шаблон за бувките
+        Pattern patternLetters = Pattern.compile(regexLetters); //pattern for letters
 
         String regexDigits = "[0-9]";
-        Pattern patterDigits = Pattern.compile(regexDigits); //шаблон за цифрите
+        Pattern patterDigits = Pattern.compile(regexDigits); //pattern for Digits
 
         String input = scanner.nextLine();
         while (!input.equals("end of race")) {
             //input = "G4e@55or%6g6!68e!!@"
-            //1. име на състезателя -> всички букви
+            //1. racer name -> all letters
             StringBuilder racerName = new StringBuilder();
             Matcher matcherLetters = patternLetters.matcher(input);
             //matcher = "G", "e", "or", "g", "e"
@@ -34,7 +34,7 @@ public class Race {
                 racerName.append(matcherLetters.group());
             }
 
-            //2. дистанция -> сума от цифрите
+            //2. distance -> digits sum
             int distance = 0;
             Matcher matcherDigits = patterDigits.matcher(input);
             //matcher = "4", "5", "5", "6", "6", "6", "8"
@@ -43,7 +43,7 @@ public class Race {
             }
 
             if (names.contains(racerName.toString())) {
-                //имаме играча в първоначалния списък
+                //name of the player in the list
                 int currentDistance = racerDistances.get(racerName.toString()); //текущата дистанция избягана от играча
                 racerDistances.put(racerName.toString(), currentDistance + distance);
             }
@@ -52,10 +52,10 @@ public class Race {
         }
 
 
-        //сортираме по дистанция в descending order
+        //sort distance descending order
         //comparingByValue -> ascending order
         List<String> top3Names = racerDistances.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())) // сортирали сме по value (дистанция) в намаляващ ред
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())) 
                 .limit(3) //оставяме само първите 3 записа
                 .map(entry -> entry.getKey()) //на всеки от трите записа взимаме ключа (име на играча)
                 .collect(Collectors.toList()); // {"George", "Peter", "Tom"}
