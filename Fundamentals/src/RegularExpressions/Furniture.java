@@ -10,7 +10,7 @@ public class Furniture {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<String> furnitureNames = new ArrayList<>(); //furniture names
-        double totalSum = 0 ; //общо изхарчена сума за всички въведени мебели
+        double totalSum = 0 ; 
 
         String regex = ">>(?<furniture>[A-Za-z]+)<<(?<price>[0-9]+\\.?[0-9]*)!(?<quantity>[0-9]+)";
         Pattern pattern = Pattern.compile(regex); //pattern
